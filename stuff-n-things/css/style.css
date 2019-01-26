@@ -1,0 +1,23 @@
+body{
+    background-color: oldlace;
+}
+
+.btn{
+    width: 125;
+    height: 25;
+}
+.btn-primary{
+    background-color: papayawhip;
+    color: #cdba96;
+    border-color: #EEE9E9;
+    border-width: 3px;
+}
+.btn:hover{
+    background-color: bisque;
+    border-color: #6F4242;
+    color: #6F4242;
+}
+.collapse{
+    background-color: bisque;
+    color: #6F4242;
+}
