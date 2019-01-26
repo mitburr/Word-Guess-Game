@@ -18,6 +18,14 @@ body{
     color: #6F4242;
 }
 .collapse{
+    background-color: oldlace;
+    color: #6F4242;
+}
+.card-body{
+    background-color: bisque;
+    color: #6F4242
+}
+.jumbotron{
     background-color: bisque;
     color: #6F4242;
 }
