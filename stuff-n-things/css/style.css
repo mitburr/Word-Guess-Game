@@ -16,8 +16,11 @@ body{
     border-color: #6F4242;
     color: #6F4242;
 }
+.btn-secondary{
+    float: left;
+}
 .collapse{
-    background-color: oldlace;
+    background-color: bisque;
     color: #6F4242;
 }
 .card-body{
@@ -31,4 +34,7 @@ body{
 .accordion{
     background-color: bisque;
     color: #6F4242;
+}
+.card{
+    background-color:bisque;
 }
