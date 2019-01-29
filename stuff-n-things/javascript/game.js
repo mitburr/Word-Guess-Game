@@ -38,19 +38,26 @@ let game = {
         console.log("Correct letter");
         correctLetters++;
         var correctLetter = document.getElementById(i);
-        correctLetter.innerText = key;
+        this.correctLetter.appendChild(key);
       }
       i++;
     }
     
+    this.lettersGuessedDiv.innerText = key;
     this.guesses++;
     this.guessesLeftDiv.innerText = "Guesses Remaining: " + (10 - this.guesses);
+    if (correctLetters == word.length){
+      textDiv.innerHTML = "<h1> you won, press start again for new word </h1>";
+      this.run == false;
+      this.wins++;
+      this.winsDiv.innerText = "Wins: " + this.wins;
+    }
+
     if (this.guesses == 10) {
       textDiv.innerHTML = "<h1> you lost </h1>";
       this.run == false;
       this.losses++;
       this.lossesDiv.innerText = "Losses: " + this.losses;
-      reset;
     }
   },
 
