@@ -21,8 +21,9 @@ let game = {
     guesses = 0;
     this.run = true;
     this.wordsArrayIndex++;
-    this.lettersGuessed.push = [];
+    this.lettersGuessed = [];
     this.correctLettersGuessed = [];
+    this.createWordList();
   },
 
   guess: function (key) {
@@ -36,24 +37,36 @@ let game = {
       if (word[i] == key) {
         console.log("Correct letter");
         correctLetters++;
+        var correctLetter = document.getElementById(i);
+        correctLetter.innerText = key;
       }
       i++;
-      this.guesses++;
-      this.guessesLeftDiv.innerText = "Guesses Remaining: " + (10 - this.guesses);
     }
-
+    
+    this.guesses++;
+    this.guessesLeftDiv.innerText = "Guesses Remaining: " + (10 - this.guesses);
     if (this.guesses == 10) {
       textDiv.innerHTML = "<h1> you lost </h1>";
       this.run == false;
       this.losses++;
       this.lossesDiv.innerText = "Losses: " + this.losses;
+      reset;
     }
   },
 
   createWordList: function () {
+    console.log("create word list");
     let word = this.wordsArray[this.wordsArrayIndex];
-    this.lettersList.innerText = word;
-  }
+    for(let i = 0; i < word.length; i ++){
+      console.log("create word list for loop")
+      var listElement = document.createElement("h1");
+      listElement.setAttribute('class', 'list-item');
+      listElement.setAttribute('id', i);
+      var _holder = document.createTextNode("__");
+      listElement.appendChild(_holder);
+      this.lettersList.appendChild(listElement);
+    }
+  },
 }
     // for (i in word){
 
