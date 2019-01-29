@@ -3,44 +3,79 @@ let game = {
   wins: 0,
   losses: 0,
   guesses: 0,
-  lettersGuessed : [],
-  wordsArrayIndex : 0,
-  wordsArray : [
+  correctLettersGuessed: [],
+  wordsArrayIndex: -1,
+  wordsArray: [
     "element",
     "hat",
     "bird",
   ],
 
-  reset: function(){
+  winsDiv: document.getElementById('wins'),
+  lossesDiv: document.getElementById('losses'),
+  lettersGuessedDiv: document.getElementById('guesses'),
+  guessesLeftDiv: document.getElementById('gLeft'),
+  lettersList: document.getElementById('letters'),
+
+  reset: function () {
     guesses = 0;
     this.run = true;
+    this.wordsArrayIndex++;
+    this.lettersGuessed.push = [];
+    this.correctLettersGuessed = [];
   },
 
-  guess: function(key){
+  guess: function (key) {
     let word = this.wordsArray[this.wordsArrayIndex];
     let lastLetterIndex = word.lastIndexOf(key);
-    let i = 0; 
+    let i = 0;
     let correctLetters = 0;
-    while ((i != lastLetterIndex || word[i] == key) && i != (word.length)){
-      if (word[i] == key){
+    const textDiv = document.getElementById("Hangman and/or text");
+
+    while ((i != lastLetterIndex || word[i] == key) && i != (word.length)) {
+      if (word[i] == key) {
         console.log("Correct letter");
         correctLetters++;
       }
-      i ++;
+      i++;
+      this.guesses++;
+      this.guessesLeftDiv.innerText = "Guesses Remaining: " + (10 - this.guesses);
     }
-    this.guesses++;
-    if(guesses == 10){
-      const textDiv = document.getElementById("Hangman and/or text");
-      textDiv.innerHTML("<h1> you lost </h1>");
+
+    if (this.guesses == 10) {
+      textDiv.innerHTML = "<h1> you lost </h1>";
       this.run == false;
+      this.losses++;
+      this.lossesDiv.innerText = "Losses: " + this.losses;
     }
   },
+
+  createWordList: function () {
+    let word = this.wordsArray[this.wordsArrayIndex];
+    this.lettersList.innerText = word;
+  }
 }
-result = function () {
-    wordHolder = document.getElementById('letters');
-    correct = document.createElement('ul');
-    correct.appendChild("test")
-}
+    // for (i in word){
+
+    // }
+
+
+    // console.log("entered result");
+    // wordHolder = document.getElementById('letters');
+    // wordList = document.createElement('ul');
+    // 
+    // for (let i = 0; i < word.length; i++) {
+    //   console.log("forLoop");
+    //   wordLetterList = document.createElement('li');
+    //   wordLetterList.setAttribute('class', 'list-item');
+    //   if (word[i] === letter) {
+    //     wordLetterList.innerHTML = "letter";
+    //   }
+    //   else {
+    //     wordLetterList.innerHTML = "__";
+    //   }
+    //   wordList.appendChild(wordLetterList)
+    // }
 //     for (var i = 0; i < word.length; i++) {
 //       correct.setAttribute('id', 'my-word');
 //       guess = document.createElement('li');
@@ -57,10 +92,10 @@ result = function () {
 //       correct.appendChild(guess);
 //     }
 //   }
-const clickHandler = function(event){
+const clickHandler = function (event) {
   game.reset();
 }
-const keyHandler = function(event){
+const keyHandler = function (event) {
   const key = event.key;
   if (game.run) {
     game.guess(key);

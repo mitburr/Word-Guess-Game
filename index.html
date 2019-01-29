@@ -12,20 +12,22 @@
     <div class="container">
         <div class="row">
              <div class="col-sm">
-                <!-- button for info, top left (navbar but only one page) -->
-                <p>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Information                   </a>
-                </p>
-                <div class="collapse" id="collapseExample">
-                    <h3>Score</h3>
-                    <div class="card card-body">
-                        <p id = "wins"> Wins: </p>
-                        <p id = "guess">Guesses remaining:</p>
-                        <p id = "guesses">Letters guessed:</p>
-                    </div>
-                </div>             
+                <div class="row">
+                    <!-- button for info, top left (navbar but only one page) -->
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Information                   </a>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                        <h3>Score</h3>
+                        <div class="card card-body">
+                            <p id = "guesses"></p>
+                            <p id = "gLeft"></p>
+                            <p id = "wins"> </p>
+                            <p id = "losses"></p>
+                        </div>
+                    </div>             
+                </div>
             </div>
-
             <div class="col-lg">
                 <div class="jumbotron">
                     <h1 class="display-4">Literary Hangman</h1>
@@ -34,19 +36,19 @@
                     <p>Please also select the </p>
                     <div class="btn-group">
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          length
+                            length
                         </button>
                         <div class="dropdown-menu">
-                          ...
+                            ...
                         </div>
                     </div>
                     <p> and </p>
                     <div class="btn-group">
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          difficulty
+                            difficulty
                         </button>
                         <div class="dropdown-menu">
-                          ...
+                            ...
                         </div>
                     </div>
                     <p>of the words.</p>
@@ -71,17 +73,14 @@
                 </div>
             </div> 
         </div>
-    <div class = "row">
-        <div class = "col-lg" id = "Hangman and/or text">
-            <h1>foobar</h1>
+        <div class="row">
+                <div class = "col-lg" id = "Hangman and/or text">
+                    <h1></h1>
+                </div>
+        </div>
+        <div class = "col-md" id = letters>
         </div>
         <div class = "col-sm" id = "filler"></div>
-    </div>
-    
-    <div class = "row">
-        <div class = "col-lg" id = "letters">
-
-        </div>
     </div>
 
 
