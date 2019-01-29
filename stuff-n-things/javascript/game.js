@@ -38,7 +38,8 @@ let game = {
         console.log("Correct letter");
         correctLetters++;
         var correctLetter = document.getElementById(i);
-        this.correctLetter.appendChild(key);
+        correctLetter.innerText = key;
+        // this.lettersGuessedDiv.appendChild(key);
       }
       i++;
     }
